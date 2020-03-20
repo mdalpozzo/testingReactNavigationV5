@@ -11,31 +11,16 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import FirstTestScreen from '@Screens/FirstTestScreen';
-import SecondTestScreen from '@Screens/SecondTestScreen';
-
-export type TestStackParamList = {
-    FirstTestScreen: undefined;
-    SecondTestScreen: undefined;
-};
-
-const TestStack = createStackNavigator<TestStackParamList>();
+import {MainStackComponent} from '@Root/navigation';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
     return (
-        <NavigationContainer>
-            <TestStack.Navigator initialRouteName="FirstTestScreen">
-                <TestStack.Screen
-                    name="FirstTestScreen"
-                    component={FirstTestScreen}
-                />
-                <TestStack.Screen
-                    name="SecondTestScreen"
-                    component={SecondTestScreen}
-                />
-            </TestStack.Navigator>
-        </NavigationContainer>
+        <SafeAreaProvider>
+            <NavigationContainer>
+                <MainStackComponent />
+            </NavigationContainer>
+        </SafeAreaProvider>
     );
 };
 
