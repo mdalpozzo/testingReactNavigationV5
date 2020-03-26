@@ -2,10 +2,13 @@ import * as React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import styles from './styles';
 import {randomColor} from '@Utils/misc';
+import {MainStackParamList} from '@Root/navigation';
+import {RouteProp} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 interface Props {
-    navigation: StackNavigationProp<>;
-    route: any;
+    navigation: StackNavigationProp<MainStackParamList, 'Story'>;
+    route: RouteProp<MainStackParamList, 'Story'>;
 }
 
 class StoryScreen extends React.PureComponent<Props> {
@@ -15,8 +18,16 @@ class StoryScreen extends React.PureComponent<Props> {
         });
     };
 
+    private handleToModalButton = () => {
+        this.props.navigation.push('FullScreenModal');
+    };
+
     private handleBackToFeedsButton = () => {
         this.props.navigation.popToTop();
+    };
+
+    private handleBackToLastStory = () => {
+        this.props.navigation.pop();
     };
 
     public render() {
@@ -36,6 +47,23 @@ class StoryScreen extends React.PureComponent<Props> {
                     onPress={this.handleToStoryScreenButton}
                 >
                     <Text style={styles.buttonText}>Go to Next Story</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.buttonContainer, styles.toModalButton]}
+                    onPress={this.handleToModalButton}
+                >
+                    <Text style={styles.buttonText}>
+                        Open Full Screen Modal
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[
+                        styles.buttonContainer,
+                        styles.backToLastStoryButton,
+                    ]}
+                    onPress={this.handleBackToLastStory}
+                >
+                    <Text style={styles.buttonText}>Back to Last Story</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.buttonContainer, styles.backToFeedsButton]}

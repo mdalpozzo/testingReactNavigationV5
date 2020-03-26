@@ -1,9 +1,17 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import styles from './styles';
+import {FeedsTabsParamList, MainStackParamList} from '@Root/navigation';
+import {MaterialTopTabNavigationProp} from '@react-navigation/material-top-tabs';
+import {CompositeNavigationProp, RouteProp} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 interface Props {
-    navigation: StackNavigationProp<>;
+    navigation: CompositeNavigationProp<
+        MaterialTopTabNavigationProp<FeedsTabsParamList, 'Daily'>,
+        StackNavigationProp<MainStackParamList>
+    >;
+    route: RouteProp<FeedsTabsParamList, 'Daily'>;
 }
 
 class DailyFeedScreen extends React.PureComponent<Props> {

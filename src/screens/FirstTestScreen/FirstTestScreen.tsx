@@ -2,16 +2,16 @@ import React from 'react';
 import {View, Text, Button} from 'react-native';
 import styles from './styles';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {TestStackParamList} from '@Root/App';
+import {MainStackParamList} from '@Root/navigation';
 import {RouteProp} from '@react-navigation/native';
 
 type FirstTestScreenRouteProp = RouteProp<
-    TestStackParamList,
+    MainStackParamList,
     'FirstTestScreen'
 >;
 
 type Props = {
-    navigation: StackNavigationProp<TestStackParamList, 'FirstTestScreen'>;
+    navigation: StackNavigationProp<MainStackParamList, 'FirstTestScreen'>;
     route: FirstTestScreenRouteProp;
 };
 
@@ -23,12 +23,12 @@ class FirstTestScreen extends React.PureComponent<Props> {
         return (
             <View style={styles.container}>
                 <Text style={styles.title}>First Test Screen</Text>
-                <Button
+                {/* <Button
                     title="Second Screen"
                     onPress={() =>
                         this.props.navigation.navigate('SecondTestScreen')
                     }
-                />
+                /> */}
             </View>
         );
     }

@@ -1,9 +1,17 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
+    modalWrapper: {
+        flex: 1,
+        paddingTop: 50,
+        backgroundColor: '#0003',
+    },
     container: {
         flex: 1,
-        backgroundColor: 'teal',
+        marginTop: 50,
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 50,
+        backgroundColor: 'aqua',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -31,14 +39,5 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
         textAlignVertical: 'center',
-    },
-    toModalButton: {
-        marginTop: 50,
-    },
-    backToLastStoryButton: {
-        marginTop: 50,
-    },
-    backToFeedsButton: {
-        marginTop: 50,
     },
 });
